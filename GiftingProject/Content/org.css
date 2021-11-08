@@ -45,6 +45,7 @@ a {
 
 .stats-panel-stat {
     margin-top: 10px;
+    margin-bottom: 15px;
     font-size: 30px;
 }
 
@@ -96,7 +97,6 @@ button {
     padding: 20px;
     margin-top: 20px;
     text-align: center;
-    width: 100px;
 }
 
     button:hover {
@@ -159,4 +159,43 @@ p{
     color: blue;
 }
 
+.badges {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: blue;
+}
 
+.badges-header {
+    background-color: blue;
+    color: white;
+    font-weight:bold;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+
+.badge {
+    margin-top: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /*    width:30px;
+    margin-left: auto;
+    margin-right: auto;*/
+    background-color: gold;
+    background-image: url(brushedGold.jpg);
+    background-position: center;
+    font-size: 30px;
+    border-radius: 200px;
+    color: blue;
+}
+
+
+.error-msg{
+    margin-top:20px;
+    color:red;
+
+}

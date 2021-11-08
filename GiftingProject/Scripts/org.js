@@ -1,7 +1,6 @@
 
 let DisplayWindow;
 let Questions = {};
-let CurrentPage;
 let BackButton;
 
 let UserCount;
@@ -31,8 +30,7 @@ function begin() {
     let nl = document.getElementsByName("Question");
     Questions = Array.from(nl);
 
-    showQuestion("HOME");
-    CurrentPage = "HOME";
+    showQuestion(CurrentPage);
 
 }
 
@@ -93,6 +91,15 @@ function addUser(sponsorName) {
     let userName = inp.value;
     if (userName != "") {
         let uri = "/add|" + userName + "|" + sponsorName;
+        window.open(uri);
+    }
+}
+
+function claimBadge(userName) {
+    let inp = document.getElementById("TransInput");
+    let transId = inp.value;
+    if (transId != "") {
+        let uri = "/tid|" + userName + "|" + transId;
         window.open(uri);
     }
 }

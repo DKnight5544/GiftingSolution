@@ -1,25 +1,29 @@
 ﻿@model GiftingProject.DatabaseAccess.UserModel
 
 
+<script>
+    let CurrentPage =  @ViewBag.CurrentPage;
+</script>
+
 <div class="container">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 
+<a class="stats-panel stats-panel-blue" href="https://paypal.me/@Model.UserName/">
+    <div class="stats-panel-name">@Model.UserName</div>
+    <div class="stats-panel-stat">
+        @(Model.UserOwnerCount.HasValue ? Model.UserOwnerCount : 0)
+    </div>
     @{
-        bool color = true;
-        string GetClassName()
+        for (int i = 0; i < Model.BadgeCount; i++)
         {
-            color = !color;
-            return color == false ? "blue" : "green";
+            <span class="badge">$</span>
         }
     }
+</a>
 
-    <a class="stats-panel stats-panel-blue" href="https://paypal.me/@Model.UserName/">
-        <div class="stats-panel-name">@Model.UserName</div>
-        <div class="stats-panel-stat">
-            @(Model.UserOwnerCount.HasValue ? Model.UserOwnerCount : 0)
-        </div>
-    </a>
+    <div class="error-msg">@ViewBag.MSG</div>
 
     <div id="DisplayWindow">
 
@@ -33,6 +37,11 @@
 <div style="display:none;">
 
     <div name="Question" id="HOME" class="question">
+
+        <p>
+            The goal of this <b>free</b> website is to give you a gift button
+            and help you put in front of as many potential givers as possible.
+        </p>
 
         <div class="q-text" style="text-align:center;">
             Is this your page?
@@ -91,22 +100,59 @@
 
         <ol>
             <li>
-                Test your blue button to see if it works.
+                Share this page with at least three (3) friends.
             </li>
             <li>
-                Share your page with at least 3 friends.
-            </li>
-            <li>
-                Visit this page often and watch your network grow!
-            </li>
-            <li>
-                Optional: Send @Model.OwnerName a small gift.
+                Give a gift, get a badge.
             </li>
         </ol>
 
         <br />
-        <button onclick="window.open('https://paypal.me/@Model.OwnerName/');">GIFT</button>
+        <button onclick="showQuestion('BADGES01');">BADGES</button>
         <button onclick="showQuestion('DEMO-01');">DEMO</button>
+
+
+    </div>
+
+    <div name="Question" id="BADGES01" class="question">
+
+        <div class="q-text">
+            Earn Your Badge
+        </div>
+
+        <ol>
+            <li>
+                Use the gift button below to send a $10 gift.
+            </li>
+        </ol>
+
+        <br />
+
+        <button onclick="window.open('https://paypal.me/@Model.OwnerName/');">SEND GIFT</button>
+        <button onclick="showQuestion('BADGES02');">CLAIM</button>
+
+    </div>
+
+    <div name="Question" id="BADGES02" class="question">
+
+        <div class="q-text">
+            Claim Your Badge
+        </div>
+
+        <ol>
+            <li>
+                Check your email and find your gift receipt.
+            </li>
+            <li>
+                Enter your transaction ID and press enter.
+            </li>
+        </ol>
+
+        <br />
+
+        <input type="text" id="TransInput" value="" />
+
+        <button onclick="claimBadge('@Model.UserName');">CLAIM</button>
 
 
     </div>

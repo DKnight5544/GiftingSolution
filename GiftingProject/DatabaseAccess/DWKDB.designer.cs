@@ -33,7 +33,7 @@ namespace GiftingProject.DatabaseAccess
     #endregion
 		
 		public DWKDBDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["dwk_multiple_projectsConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["dwk_multiple_projectsConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -83,6 +83,13 @@ namespace GiftingProject.DatabaseAccess
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName);
 			return ((ISingleResult<UserModel>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="org.AddBadge")]
+		public ISingleResult<AddBadgeResult> AddBadge([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransID", DbType="VarChar(17)")] string transID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(50)")] string userName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transID, userName);
+			return ((ISingleResult<AddBadgeResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="org.UserModel")]
@@ -106,6 +113,8 @@ namespace GiftingProject.DatabaseAccess
 		private System.Nullable<int> _OwnerSponsorCount;
 		
 		private System.Nullable<int> _OwnerOwnerCount;
+		
+		private int _BadgeCount;
 		
 		public UserModel()
 		{
@@ -251,6 +260,48 @@ namespace GiftingProject.DatabaseAccess
 				if ((this._OwnerOwnerCount != value))
 				{
 					this._OwnerOwnerCount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BadgeCount", DbType="Int NOT NULL")]
+		public int BadgeCount
+		{
+			get
+			{
+				return this._BadgeCount;
+			}
+			set
+			{
+				if ((this._BadgeCount != value))
+				{
+					this._BadgeCount = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AddBadgeResult
+	{
+		
+		private System.Nullable<char> _Column1;
+		
+		public AddBadgeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Char(1)")]
+		public System.Nullable<char> Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
 				}
 			}
 		}

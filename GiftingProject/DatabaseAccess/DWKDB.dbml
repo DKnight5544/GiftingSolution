@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dwk-multiple-projects" Class="DWKDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=dwk-sql-server-01.database.windows.net;Initial Catalog=dwk-multiple-projects;User ID=TimerToysApp" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dwk_multiple_projectsConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=dwk-sql-server-01.database.windows.net;Initial Catalog=dwk-multiple-projects;User ID=TimerToysApp" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dwk_multiple_projectsConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="org.UserModel" Member="UserModels">
     <Type Name="UserModel" Id="ID1">
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -11,6 +11,7 @@
       <Column Name="OwnerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="OwnerSponsorCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="OwnerOwnerCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BadgeCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="org.AddUser" Method="AddUser">
@@ -21,5 +22,12 @@
   <Function Name="org.GetUser" Method="GetUser">
     <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(50)" />
     <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="org.AddBadge" Method="AddBadge">
+    <Parameter Name="TransID" Parameter="transID" Type="System.String" DbType="VarChar(17)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="AddBadgeResult">
+      <Column Name="" Member="Column1" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
