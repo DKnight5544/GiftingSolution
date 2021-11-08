@@ -9,10 +9,9 @@ namespace GiftingProject.Controllers
     {
         public ActionResult Index(string id)
         {
-            ViewBag.Title = "Gift Club";
+            ViewBag.Title = "Free Gift Club";
             ViewBag.CSS = "~/Content/org.css";
             ViewBag.JS = "~/Scripts/org.js";
-            ViewBag.MSG = "";
             ViewBag.CurrentPage = "HOME";
 
             id = string.IsNullOrWhiteSpace(id) ? "WIGIWIZ" : id;
@@ -43,21 +42,7 @@ namespace GiftingProject.Controllers
                     if (transId.Length == 17)
                     {
                         var msg = c.AddBadge(transId, userName).SingleOrDefault();
-                        if(msg.Column1 == 'D')
-                        {
-                            ViewBag.MSG = "Duplicate Transaction ID";
-                            ViewBag.CurrentPage = "BADGES02";
-                            user = c.GetUser(userName).SingleOrDefault();
-                            return View(user);
-                        }
-                    }
-
-                    else
-                    {
-                        ViewBag.MSG = "Invalid Transaction ID";
-                        ViewBag.CurrentPage = "BADGES02";
-                        user = c.GetUser(userName).SingleOrDefault();
-                        return View(user);
+                        //msg = "D" = Duplicate
                     }
 
                     return Redirect(string.Format("/{0}", userName));
@@ -74,5 +59,4 @@ namespace GiftingProject.Controllers
             }
         }
     }
-
 }

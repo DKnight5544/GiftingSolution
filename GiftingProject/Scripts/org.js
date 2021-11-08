@@ -54,6 +54,7 @@ function previous() {
     else if (CurrentPage == "DEMO-04") prevPage = "DEMO-03";
     else if (CurrentPage == "DAY01") prevPage = "DEMO-04";
     else if (CurrentPage == "DAY22") prevPage = "DAY01";
+    else if (CurrentPage == "BADGES01") prevPage = "USER01";
     else if (CurrentPage == "") prevPage = "";
     else prevPage = "HOME";
 

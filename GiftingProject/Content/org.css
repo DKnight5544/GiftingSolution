@@ -23,8 +23,8 @@ a {
 .stats-panel {
     width: 80%;
     margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
     text-decoration: none;
 }
@@ -45,14 +45,10 @@ a {
 
 .stats-panel-stat {
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 30px;
 }
 
-.stats-panel-click {
-    margin-top: 10px;
-    font-size: 16px;
-}
 
 #DisplayWindow {
     position: relative;
@@ -94,7 +90,7 @@ button {
     color: grey;
     border: 1px solid grey;
     font-size: 20px;
-    padding: 20px;
+    padding: 10px;
     margin-top: 20px;
     text-align: center;
 }
@@ -179,16 +175,16 @@ p{
 
 .badge {
     margin-top: 20px;
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    /*    width:30px;
-    margin-left: auto;
-    margin-right: auto;*/
+    margin-left:3px;
+    margin-right:3px;
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: gold;
     background-image: url(brushedGold.jpg);
     background-position: center;
-    font-size: 30px;
+    font-size: 20px;
+    font-weight:bold;
     border-radius: 200px;
     color: blue;
 }

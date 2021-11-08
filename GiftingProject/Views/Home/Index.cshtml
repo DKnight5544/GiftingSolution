@@ -2,7 +2,7 @@
 
 
 <script>
-    let CurrentPage =  @ViewBag.CurrentPage;
+    let CurrentPage =  "@ViewBag.CurrentPage";
 </script>
 
 <div class="container">
@@ -10,20 +10,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 
-<a class="stats-panel stats-panel-blue" href="https://paypal.me/@Model.UserName/">
-    <div class="stats-panel-name">@Model.UserName</div>
-    <div class="stats-panel-stat">
-        @(Model.UserOwnerCount.HasValue ? Model.UserOwnerCount : 0)
-    </div>
-    @{
-        for (int i = 0; i < Model.BadgeCount; i++)
-        {
-            <span class="badge">$</span>
+    <div class="stats-panel stats-panel-blue" @*href="https://paypal.me/@Model.UserName/"*@>
+        <div class="stats-panel-name">@Model.UserName</div>
+        <div class="stats-panel-stat">
+            @(Model.UserOwnerCount.HasValue ? Model.UserOwnerCount : 0)
+        </div>
+        @{
+            for (int i = 0; i < Model.BadgeCount; i++)
+            {
+                <span class="badge">G</span>
+            }
         }
-    }
-</a>
-
-    <div class="error-msg">@ViewBag.MSG</div>
+    </div>
 
     <div id="DisplayWindow">
 
@@ -38,15 +36,19 @@
 
     <div name="Question" id="HOME" class="question">
 
-        <p>
-            The goal of this <b>free</b> website is to give you a gift button
-            and help you put in front of as many potential givers as possible.
+        @*<p>
+            Page Owner: @Model.UserName
         </p>
+        <p>
+            Potential Givers: @Model.UserOwnerCount
+        </p>
+        <p>
+            Badges Earned: @Model.BadgeCount
+        </p>*@
 
         <div class="q-text" style="text-align:center;">
             Is this your page?
         </div>
-
 
         <br />
         <button onclick="showQuestion('USER01');">YES</button>
@@ -54,51 +56,14 @@
 
     </div>
 
-    <div name="Question" id="GUEST01">
-
-        <div class="q-text" style="text-align:center;">
-            Do you have
-        </div>
-        <div class="q-text" style="text-align:center;">
-            a PayPal.me link?
-        </div>
-
-        <br />
-        <button onclick="showQuestion('GUEST02');">YES</button>
-        <button onclick="window.open('https://paypal.me/', '_blank');">NO</button>
-
-    </div>
-
-    <div name="Question" id="GUEST02" class="question">
-
-
-        <div>
-            <div class="q-text" style="text-align:center;">
-                Let's find your page.
-            </div>
-            <br />
-            <br />
-
-            <span class="q-text" style="color:grey;">
-                https://paypal.me/???
-            </span>
-
-            <input type="text" id="UserNameInput" value="" />
-
-            <button onclick="addUser('@Model.UserName');">FIND</button>
-
-        </div>
-
-    </div>
-
     <div name="Question" id="USER01" class="question">
-
 
         <div class="q-text">
             To Do List:
         </div>
 
         <ol>
+            <li>View a demo showing how this websites works.</li>
             <li>
                 Share this page with at least three (3) friends.
             </li>
@@ -108,32 +73,15 @@
         </ol>
 
         <br />
-        <button onclick="showQuestion('BADGES01');">BADGES</button>
+
         <button onclick="showQuestion('DEMO-01');">DEMO</button>
+        <button onclick="window.open('https://paypal.me/@Model.OwnerName/');">GIFT</button>
+        <button onclick="showQuestion('BADGES01');">BADGE</button>
 
 
     </div>
 
     <div name="Question" id="BADGES01" class="question">
-
-        <div class="q-text">
-            Earn Your Badge
-        </div>
-
-        <ol>
-            <li>
-                Use the gift button below to send a $10 gift.
-            </li>
-        </ol>
-
-        <br />
-
-        <button onclick="window.open('https://paypal.me/@Model.OwnerName/');">SEND GIFT</button>
-        <button onclick="showQuestion('BADGES02');">CLAIM</button>
-
-    </div>
-
-    <div name="Question" id="BADGES02" class="question">
 
         <div class="q-text">
             Claim Your Badge
@@ -252,6 +200,71 @@
         <br />
 
         <button onclick="showQuestion('USER01');">HOME</button>
+
+    </div>
+
+
+    <div name="Question" id="GUEST01">
+
+        <div class="q-text">
+            Welcome!
+        </div>
+
+        <p>
+            This purpose of this website is to help you raise money
+            by getting your PayPal.me page in front of as many pontential 
+            givers as possible.
+        </p>
+
+        <br />
+
+        <button onclick="showQuestion('GUEST02');">NEXT</button>
+
+    </div>
+
+    <div name="Question" id="GUEST02">
+
+        <div class="q-text">
+            It's Free!
+        </div>
+
+        <p>
+            This is a free service.  Anyone with a PayPal.me link can
+            participate!  Do you have a free PayPal.me link?
+        </p>
+
+        <br />
+
+        <button onclick="showQuestion('GUEST03');">YES</button>
+        <button onclick="window.open('https://paypal.me/', '_blank');">NO</button>
+
+    </div>
+
+    <div name="Question" id="GUEST03" class="question">
+
+        <div>
+
+            <div class="q-text">
+                Excellent!
+            </div>
+
+            <p>
+                Let's start by cloning a free page for you on this site. 
+                Enter your PayPal.me link name below...
+            </p>
+
+            <br />
+            <br />
+
+            <span class="q-text" style="color:grey;">
+                https://paypal.me/ (just this part)
+            </span>
+
+            <input type="text" id="UserNameInput" value="" />
+
+            <button onclick="addUser('@Model.UserName');">FIND</button>
+
+        </div>
 
     </div>
 
