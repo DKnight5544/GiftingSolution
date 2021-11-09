@@ -9,6 +9,9 @@ let Day = 0;
 
 let DayValueArray = [];
 
+let CurrentPage = "HOME";
+let crumbs = [];
+
 function begin() {
 
     DisplayWindow = document.getElementById("DisplayWindow");
@@ -29,12 +32,11 @@ function begin() {
 
     let nl = document.getElementsByName("Question");
     Questions = Array.from(nl);
-
     showQuestion(CurrentPage);
 
 }
 
-function showQuestion(id) {
+function showQuestion(id, push = true) {
     let q = Questions.find(e => e.id == id);
     DisplayWindow.innerHTML = q.innerHTML;
     BackButton.style.display = (id == "HOME" || id == "DAY22") ? "none" : "block";
@@ -48,6 +50,7 @@ function previous() {
     if (CurrentPage == "USER01") prevPage = "HOME";
     else if (CurrentPage == "GUEST01") prevPage = "HOME";
     else if (CurrentPage == "GUEST02") prevPage = "GUEST01";
+    else if (CurrentPage == "GUEST03") prevPage = "GUEST02";
     else if (CurrentPage == "DEMO-01") prevPage = "USER01";
     else if (CurrentPage == "DEMO-02") prevPage = "DEMO-01";
     else if (CurrentPage == "DEMO-03") prevPage = "DEMO-02";
@@ -90,6 +93,9 @@ function nextDay(offset) {
 function addUser(sponsorName) {
     let inp = document.getElementById("UserNameInput");
     let userName = inp.value;
+    let idx = userName.lastIndexOf("/");
+    userName = userName.substr(idx + 1);
+
     if (userName != "") {
         let uri = "/add|" + userName + "|" + sponsorName;
         window.open(uri);

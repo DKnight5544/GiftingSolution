@@ -131,13 +131,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\badge01.jpg" />
-    <Content Include="Content\brushedGold.jpg" />
-    <Content Include="Content\GoldCoin01.jpg" />
-    <Content Include="Content\GoldCoin02.jpg" />
-    <Content Include="Content\GoldCoin03.jpg" />
     <Content Include="Content\org.css" />
-    <Content Include="Content\usdollar01.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\org.js" />

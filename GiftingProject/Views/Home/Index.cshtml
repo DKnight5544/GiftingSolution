@@ -1,10 +1,6 @@
 ﻿@model GiftingProject.DatabaseAccess.UserModel
 
 
-<script>
-    let CurrentPage =  "@ViewBag.CurrentPage";
-</script>
-
 <div class="container">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -252,16 +248,8 @@
                 Let's start by cloning a free page for you on this site. 
                 Enter your PayPal.me link name below...
             </p>
-
             <br />
-            <br />
-
-            <span class="q-text" style="color:grey;">
-                https://paypal.me/ (just this part)
-            </span>
-
             <input type="text" id="UserNameInput" value="" />
-
             <button onclick="addUser('@Model.UserName');">FIND</button>
 
         </div>

@@ -12,7 +12,6 @@ namespace GiftingProject.Controllers
             ViewBag.Title = "Free Gift Club";
             ViewBag.CSS = "~/Content/org.css";
             ViewBag.JS = "~/Scripts/org.js";
-            ViewBag.CurrentPage = "HOME";
 
             id = string.IsNullOrWhiteSpace(id) ? "WIGIWIZ" : id;
             UserModel user;
@@ -27,6 +26,7 @@ namespace GiftingProject.Controllers
 
                     string userName = arr[1];
                     string sponsorName = arr[2];
+
                     c.AddUser(sponsorName, userName);
                     return Redirect(string.Format("/{0}", userName));
 
