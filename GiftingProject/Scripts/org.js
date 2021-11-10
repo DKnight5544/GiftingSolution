@@ -98,7 +98,7 @@ function addUser(sponsorName) {
 
     if (userName != "") {
         let uri = "/add|" + userName + "|" + sponsorName;
-        window.open(uri);
+        window.location = uri;
     }
 }
 
@@ -107,7 +107,7 @@ function claimBadge(userName) {
     let transId = inp.value;
     if (transId != "") {
         let uri = "/tid|" + userName + "|" + transId;
-        window.open(uri);
+        window.location = uri;
     }
 }
 
