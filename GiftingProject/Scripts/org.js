@@ -48,17 +48,14 @@ function previous() {
     let prevPage;
 
     if (CurrentPage == "USER01") prevPage = "HOME";
+    else if (CurrentPage == "USER02") prevPage = "USER01";
+    else if (CurrentPage == "USER03") prevPage = "USER02";
+    else if (CurrentPage == "USER04") prevPage = "USER03";
+    else if (CurrentPage == "USER05") prevPage = "USER04";
+    else if (CurrentPage == "USER06") prevPage = "USER05";
     else if (CurrentPage == "GUEST01") prevPage = "HOME";
     else if (CurrentPage == "GUEST02") prevPage = "GUEST01";
     else if (CurrentPage == "GUEST03") prevPage = "GUEST02";
-    else if (CurrentPage == "DEMO-01") prevPage = "USER01";
-    else if (CurrentPage == "DEMO-02") prevPage = "DEMO-01";
-    else if (CurrentPage == "DEMO-03") prevPage = "DEMO-02";
-    else if (CurrentPage == "DEMO-04") prevPage = "DEMO-03";
-    else if (CurrentPage == "DAY01") prevPage = "DEMO-04";
-    else if (CurrentPage == "DAY22") prevPage = "DAY01";
-    else if (CurrentPage == "BADGES01") prevPage = "USER01";
-    else if (CurrentPage == "") prevPage = "";
     else prevPage = "HOME";
 
     showQuestion(prevPage);

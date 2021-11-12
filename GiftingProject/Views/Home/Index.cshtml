@@ -4,20 +4,16 @@
 <div class="container">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 
-    <div class="stats-panel stats-panel-blue" @*href="https://paypal.me/@Model.UserName/"*@>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
+
+    <a class="stats-panel stats-panel-blue" 
+       href="https://paypal.me/@Model.UserName/" 
+       target="_blank">
         <div class="stats-panel-name">@Model.UserName</div>
-        <div class="stats-panel-stat">
-            @(Model.UserOwnerCount.HasValue ? Model.UserOwnerCount : 0)
-        </div>
-        @{
-            for (int i = 0; i < Model.BadgeCount; i++)
-            {
-                <span class="badge">G</span>
-            }
-        }
-    </div>
+    </a>
 
     <div id="DisplayWindow">
 
@@ -32,228 +28,134 @@
 
     <div name="Question" id="HOME" class="question">
 
-        @*<p>
-            Page Owner: @Model.UserName
-        </p>
-        <p>
-            Potential Givers: @Model.UserOwnerCount
-        </p>
-        <p>
-            Badges Earned: @Model.BadgeCount
-        </p>*@
 
-        <div class="q-text" style="text-align:center;">
-            Is this your page?
-        </div>
-
-        <br />
-        <button onclick="showQuestion('USER01');">YES</button>
-        <button onclick="showQuestion('GUEST01');">NO</button>
+        <button onclick="showQuestion('USER01');">@Model.UserName</button>
+        <button onclick="showQuestion('GUEST01');">VISITOR</button>
 
     </div>
 
-    <div name="Question" id="USER01" class="question">
-
-        <div class="q-text">
-            To Do List:
-        </div>
-
-        <ol>
-            <li>View a demo showing how this websites works.</li>
-            <li>
-                Share this page with at least three (3) friends.
-            </li>
-            <li>
-                Give a gift, get a badge.
-            </li>
-        </ol>
-
-        <br />
-
-        <button onclick="showQuestion('DEMO-01');">DEMO</button>
-        <button onclick="window.open('https://paypal.me/@Model.OwnerName/');">GIFT</button>
-        <button onclick="showQuestion('BADGES01');">BADGE</button>
-
-
-    </div>
-
-    <div name="Question" id="BADGES01" class="question">
-
-        <div class="q-text">
-            Claim Your Badge
-        </div>
-
-        <ol>
-            <li>
-                Check your email and find your gift receipt.
-            </li>
-            <li>
-                Enter your transaction ID and press enter.
-            </li>
-        </ol>
-
-        <br />
-
-        <input type="text" id="TransInput" value="" />
-
-        <button onclick="claimBadge('@Model.UserName');">CLAIM</button>
-
-
-    </div>
-
-    <div name="Question" id="DEMO-01" class="question">
-
-        <div class="q-text">
-            Fact:
-        </div>
+    <div name="Question" id="GUEST01" class="question">
 
         <p>
-            The goal of this <b>free</b> website is to put <b>your</b> gift button in front
-            of as many potential givers as possible.
+            <b>See that big blue button above? </b> It will take you to my
+            PayPal.me page where you can send me a $10 gift if you wish.
         </p>
-
-        <br />
-
-        <button onclick="showQuestion('DEMO-02');">NEXT</button>
-
-    </div>
-
-    <div name="Question" id="DEMO-02" class="question">
-
-        <div class="q-text">
-            Fact:
-        </div>
-
-        <p>
-            Your only task is to share this <b>free</b> page with
-            at least 3 friends, then sit back and watch your network grow.
-        </p>
-
-        <br />
-
-        <button onclick="showQuestion('DEMO-03');">NEXT</button>
-
-    </div>
-
-    <div name="Question" id="DEMO-03" class="question">
-
-        <div class="q-text">
-            Assumption:
-        </div>
-
-        <p>
-            Let's assume, for the demo, that each new user can
-            add 1 new user per day for 3 days.
-        </p>
-
-        <br />
-
-        <button onclick="showQuestion('DEMO-04');">NEXT</button>
-
-    </div>
-
-    <div name="Question" id="DEMO-04" class="question">
-
-        <div class="q-text">
-            Disclaimer:
-        </div>
-
-        <p>
-            PayPal only has a little over 377 million active users
-            so your mileage will vary...
-        </p>
-
-        <br />
-
-        <button onclick="dayOne();">NEXT</button>
-
-    </div>
-
-    <div name="Question" id="DAY01" class="question">
-
-        <div class="q-text">
-            <div id="DayNumber" style="text-align:center; font-size:20px;">Your Day 1 User Count</div>
-            <br />
-            <div id="UserCount" style="text-align:center; font-size:32px;">0</div>
-        </div>
-
-        <br />
-        <button onclick="nextDay(-1);">PREV</button>
-        <button onclick="nextDay(1);">NEXT</button>
-
-    </div>
-
-    <div name="Question" id="DAY22" class="question">
-
-        <div class="q-text">
-            <div id="DayNumber" style="text-align:center; font-size:20px;">Your Day 22 User Count</div>
-            <br />
-            <div id="UserCount" style="text-align:center; font-size:32px;">1048575</div>
-            <br />
-            <div id="DayNumber" style="text-align:center; font-size:20px;">Demo Complete</div>
-        </div>
-
-        <br />
-
-        <button onclick="showQuestion('USER01');">HOME</button>
-
-    </div>
-
-
-    <div name="Question" id="GUEST01">
-
-        <div class="q-text">
-            Welcome!
-        </div>
-
-        <p>
-            This purpose of this website is to help you raise money
-            by getting your PayPal.me page in front of as many pontential 
-            givers as possible.
-        </p>
-
-        <br />
 
         <button onclick="showQuestion('GUEST02');">NEXT</button>
 
+
     </div>
 
-    <div name="Question" id="GUEST02">
-
-        <div class="q-text">
-            It's Free!
-        </div>
+    <div name="Question" id="GUEST02" class="question">
 
         <p>
-            This is a free service.  Anyone with a PayPal.me link can
-            participate!  Do you have a free PayPal.me link?
+            <b>The goal of this website</b> is to help anyone with
+            a PayPal.me link to receive as many $10 gifts as possible.
         </p>
 
-        <br />
+        <button onclick="showQuestion('GUEST03');">NEXT</button>
 
-        <button onclick="showQuestion('GUEST03');">YES</button>
-        <button onclick="window.open('https://paypal.me/', '_blank');">NO</button>
 
     </div>
 
     <div name="Question" id="GUEST03" class="question">
 
-        <div>
+        <p>
+            <b>Interested?</b> Then let's get started by creating
+            a big blue button for you. Free.
+        </p>
 
-            <div class="q-text">
-                Excellent!
-            </div>
+        <p>Enter your PayPal.me handle below.</p>
 
-            <p>
-                Let's start by cloning a free page for you on this site. 
-                Enter your PayPal.me link name below...
-            </p>
-            <br />
-            <input type="text" id="UserNameInput" value="" />
-            <button onclick="addUser('@Model.UserName');">CLONE</button>
+        <input type="text" id="UserNameInput" value="" />
+        <button onclick="addUser('@Model.UserName');">CREATE MY BUTTON</button>
 
-        </div>
 
     </div>
+
+    <div name="Question" id="USER01" class="question">
+
+        <p>
+            <b>Excellent!</b>
+        </p>
+        <p>
+            Now that you have your big blue button
+            simply bookmark this page and share it with at least 3 people.
+        </p>
+
+        <button onclick="showQuestion('USER02');">NEXT</button>
+
+    </div>
+
+    <div name="Question" id="USER02" class="question">
+
+        <p>
+            <b>Your first two</b>
+            new users will "roll-up" to someone elses network.  This
+            is a good thing for you.
+        </p>
+
+
+        <button onclick="showQuestion('USER03');">NEXT</button>
+
+    </div>
+
+    <div name="Question" id="USER03" class="question">
+
+        <p>
+            <b>Each new user</b> after that stays in your network.
+        </p>
+
+
+        <button onclick="showQuestion('USER04');">NEXT</button>
+
+    </div>
+
+    <div name="Question" id="USER04" class="question">
+
+        <p>
+            <b>Every person</b> who joins your network either by
+            personal invitation, <b>or roll-up</b>, will now roll up
+            their first two new users to you!!
+        </p>
+
+
+        <button onclick="showQuestion('USER05');">NEXT</button>
+
+    </div>
+
+    <div name="Question" id="USER05" class="question">
+
+        <p>
+            <b>Your network</b> can now grow by itself and
+            you can sit back and watch your PayPal account
+            for gifts.
+        </p>
+
+
+        <button onclick="showQuestion('USER06');">NEXT</button>
+
+    </div>
+
+    <div name="Question" id="USER06" class="question">
+
+        <p>
+            <b>Now, it only seems fair,</b> that if you are hoping to
+            receive gifts you should also be willing to give a gift.
+        </p>
+        <p>
+            <b>We ask that you</b> consider giving your group leader
+            a one-time $10 gift. Just click the big blue button below.
+        </p>
+
+        <a class="stats-panel stats-panel-blue"
+           href="https://paypal.me/@Model.OwnerName/10"
+           target="_blank">
+            <div class="stats-panel-name">@Model.OwnerName</div>
+        </a>
+
+    </div>
+
+
 
 </div>
