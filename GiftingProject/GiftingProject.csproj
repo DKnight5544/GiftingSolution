@@ -132,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\org.css" />
+    <Content Include="Content\Slap02.gif" />
+    <Content Include="Content\tenor.gif" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\org.js" />
@@ -162,6 +164,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Properties\PublishProfiles\gifting - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\gifting - Web Deploy1.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

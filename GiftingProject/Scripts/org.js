@@ -9,7 +9,7 @@ let Day = 0;
 
 let DayValueArray = [];
 
-let CurrentPage = "HOME";
+let CurrentPage = "GUEST01";
 let crumbs = [];
 
 function begin() {

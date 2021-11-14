@@ -13,7 +13,7 @@ namespace GiftingProject.Controllers
             ViewBag.CSS = "~/Content/org.css";
             ViewBag.JS = "~/Scripts/org.js";
 
-            id = string.IsNullOrWhiteSpace(id) ? "WIGIWIZ" : id;
+            id = string.IsNullOrWhiteSpace(id) ? "$GoodKnightQuilts" : id;
             UserModel user;
             string connStr = Environment.GetEnvironmentVariable("DWKDBConnectionString");
 
