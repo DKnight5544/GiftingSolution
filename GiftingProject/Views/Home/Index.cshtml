@@ -18,118 +18,104 @@
 <div style="display:none;">
 
     <div name="Question" id="PAGE01" class="question">
-        <div class="header-container" style="width:140px;">
-            <span class="header">G</span>
-            <span class="header">I</span>
-            <span class="header">V</span>
+        <div class="header-container" style="width:180px;">
+            <span class="header">H</span>
+            <span class="header">O</span>
+            <span class="header">M</span>
             <span class="header">E</span>
         </div>
 
-        <b>User:</b>
         <p>
-            @Model.UserName, this is your page.  Don't forget to share it with
-            someone today!
-        </p>
-        <p>
-            Also, make a deposit into the Universal Bank of Karma.
-            Use your Cash App to give a one-time $10 gift to:
+            The sole reason for this free website is to help Cash App users
+            receive a boat-load of $10 gifts. Really.
         </p>
 
-        <div class="owner-name">@Model.OwnerName</div>
-
-        <br />
-        <b>Visitor: </b>
-        <p>Do you like receiving gifts?</p>
-
+        <p>
+            Are you <b>@Model.UserName</b> ?
+        </p>
 
         <button onclick="showQuestion('PAGE02');">YES</button>
-        <button onclick="showQuestion('NO');">NO</button>
+        <button onclick="showQuestion('PAGE20');">NO</button>
 
 
     </div>
-    <div name="Question" id="NO" class="question">
-        <div class="header-container" style="width:225px;">
-            <span class="header">S</span>
-            <span class="header">M</span>
-            <span class="header">A</span>
-            <span class="header">C</span>
-            <span class="header">K</span>
-            <span class="header">!</span>
+    <div name="Question" id="PAGE20" class="question">
+        <div class="header-container" style="width:140px;">
+            <span class="header">F</span>
+            <span class="header">I</span>
+            <span class="header">N</span>
+            <span class="header">D</span>
         </div>
 
-        <img src="~/Content/slap02.gif" style="margin-bottom:20px;" />
+        <p>Then let's find your page.  Enter your cashtag below. . .</p>
 
-        <br />
-        <button onclick="showQuestion('PAGE01');">BACK</button>
+        <input type="text" id="UserNameInput" value="" />
+        <button onclick="addUser('@Model.UserName');">FIND</button>
+        <button onclick="showQuestion('PAGE01');">HOME</button>
 
     </div>
 
     <div name="Question" id="PAGE02" class="question">
-        <div class="header-container" style="width:240px;">
+        <div class="header-container" style="width:200px;">
+            <span class="header">S</span>
+            <span class="header">H</span>
+            <span class="header">A</span>
             <span class="header">R</span>
             <span class="header">E</span>
-            <span class="header">C</span>
-            <span class="header">E</span>
-            <span class="header">I</span>
-            <span class="header">V</span>
-            <span class="header">E</span>
         </div>
-        <b>You're in luck!</b>
+
         <p>
-            The whole point of this fast, fun, and free, little website is to help Cash App
-            users receive a boat-load of $10 gifts!
-        </p>
-        <p style="margin-top:20px;">
-            <b>Note:</b> To make this system work for you, you must help
-            us find at least three new users.
+            This is your page then.  Your entire job now is to
+            share this page with at least three (3) people.
         </p>
         <p style="margin-top:20px;">
             <b>Remember:</b> This website is 100% free!
         </p>
 
         <button onclick="showQuestion('PAGE03');">NEXT</button>
+        <button onclick="showQuestion('PAGE01');">HOME</button>
 
     </div>
 
     <div name="Question" id="PAGE03" class="question">
 
-        <div class="header-container" style="width:185px;">
-            <span class="header">S</span>
-            <span class="header">T</span>
+        <div class="header-container" style="width:140px;">
+            <span class="header">G</span>
+            <span class="header">I</span>
+            <span class="header">V</span>
             <span class="header">E</span>
-            <span class="header">P</span>
-            <span class="header">-</span>
-            <span class="header">1</span>
         </div>
         <p>
-            Start by getting the Cash App from your favorite App Store.
+            Finally, bank some karma by giving a $10 gift to:
         </p>
-
-        <button onclick="showQuestion('PAGE04');">NEXT</button>
-
-    </div>
-
-    <div name="Question" id="PAGE04" class="question">
-
-        <div class="header-container" style="width:185px;">
-            <span class="header">S</span>
-            <span class="header">T</span>
-            <span class="header">E</span>
-            <span class="header">P</span>
-            <span class="header">-</span>
-            <span class="header">2</span>
-        </div>
         <p>
-            Next, create a customized copy of this web page, and
-            use it to help us find at least three (3) new users.
+            <b>@Model.OwnerName</b>
         </p>
 
-        <label>your cashtag</label>
-        <input type="text" id="UserNameInput" value="" />
-        <button onclick="addUser('@Model.UserName');">CREATE</button>
+        <p>
+            <b>Giving Will. . .</b>
+        </p>
 
+        <ul>
+            <li>spread happiness.</li>
+            <li>increase your joy.</li>
+        </ul>
 
+        <p>
+            <b>Giving May Even. . .</b>
+        </p>
+
+        <ul>
+            <li>prevent bad breath.</li>
+            <li>prevent cold sores.</li>
+            <li>prevent hair loss.</li>
+            <li>and help you lose weight.</li>
+        </ul>
+
+        <img src="~/Content/smiley2.png" />
+        <br />
         <button onclick="showQuestion('PAGE01');">HOME</button>
+
     </div>
 
 </div>

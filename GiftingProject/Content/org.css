@@ -52,6 +52,7 @@
 
 b {
     color:black;
+    font-weight:500;
     margin-bottom:0px;
 }
 
@@ -60,12 +61,6 @@ p {
     text-align: left;
     line-height: 26px;
     color:grey;
-}
-
-.owner-name{
-    text-align:center;
-    font-size:18px;
-    color:red;
 }
 
 button {
@@ -91,11 +86,12 @@ input {
     width: 100%;
 }
 
-
-img{
-    width:100%;
+li{
+    color: grey;
+    margin-top:10px;
 }
 
-label{
-    color:grey;
+img {
+    margin-left: 15px;
+    margin-bottom: 10px;
 }
