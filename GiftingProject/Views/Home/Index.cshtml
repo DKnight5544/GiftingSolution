@@ -25,14 +25,18 @@
             <span class="header">E</span>
         </div>
 
-        <p>
-            The sole reason for this free website is to help Cash App users
-            receive a boat-load of $10 gifts. Really.
-        </p>
+        <p><b>Two Questions</b></p>
 
+        <ul>
+            <li>Are you a Cash App User?</li>
+            <li>Do you enjoy receiving cash gifts?</li>
+        </ul>
         <p>
-            Are you <b>@Model.UserName</b> ?
+            If so, then this free website was made for you. 
         </p>
+        <ul>
+            <li>Are you <b>@Model.UserName</b>?</li>
+        </ul>
 
         <button onclick="showQuestion('PAGE02');">YES</button>
         <button onclick="showQuestion('PAGE20');">NO</button>
@@ -47,7 +51,7 @@
             <span class="header">D</span>
         </div>
 
-        <p>Then let's find your page.  Enter your cashtag below. . .</p>
+        <p>Ok then, let's find your page.  Enter your Cash App cashtag below. . .</p>
 
         <input type="text" id="UserNameInput" value="" />
         <button onclick="addUser('@Model.UserName');">FIND</button>
@@ -65,9 +69,17 @@
         </div>
 
         <p>
-            This is your page then.  Your entire job now is to
-            share this page with at least three (3) people.
+            <b>This is your page then.</b>  Your goal is to
+            share this page with at least three (3) new
+            Cash App users.
         </p>
+
+        <p>
+            <b>If you succeed</b>, we could be asking a 
+            very large group of Cash App users to send 
+            you a $10 gift.
+        </p>
+
         <p style="margin-top:20px;">
             <b>Remember:</b> This website is 100% free!
         </p>
@@ -86,34 +98,18 @@
             <span class="header">E</span>
         </div>
         <p>
-            Finally, bank some karma by giving a $10 gift to:
+            Finally, consider giving a $10 gift to:
         </p>
         <p>
             <b>@Model.OwnerName</b>
         </p>
 
-        <p>
-            <b>Giving Will. . .</b>
-        </p>
-
         <ul>
-            <li>spread happiness.</li>
-            <li>increase your joy.</li>
+            <li>Pay it forward!</li>
+            <li>Bank some karma!</li>
+            <li>Bring some joy!</li>
         </ul>
-
-        <p>
-            <b>Giving May Even. . .</b>
-        </p>
-
-        <ul>
-            <li>prevent bad breath.</li>
-            <li>prevent cold sores.</li>
-            <li>prevent hair loss.</li>
-            <li>and help you lose weight.</li>
-        </ul>
-
-        <img src="~/Content/smiley2.png" />
-        <br />
+        
         <button onclick="showQuestion('PAGE01');">HOME</button>
 
     </div>
