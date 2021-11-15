@@ -17,7 +17,7 @@
 
 <div style="display:none;">
 
-    <div name="Question" id="GUEST01" class="question">
+    <div name="Question" id="PAGE01" class="question">
         <div class="header-container" style="width:140px;">
             <span class="header">G</span>
             <span class="header">I</span>
@@ -27,7 +27,11 @@
 
         <b>User:</b>
         <p>
-            @Model.UserName, this is your chance to make a big deposit into the Universal Bank of Karma.
+            @Model.UserName, this is your page.  Don't forget to share it with
+            someone today!
+        </p>
+        <p>
+            Also, make a deposit into the Universal Bank of Karma.
             Use your Cash App to give a one-time $10 gift to:
         </p>
 
@@ -38,7 +42,7 @@
         <p>Do you like receiving gifts?</p>
 
 
-        <button onclick="showQuestion('GUEST02');">YES</button>
+        <button onclick="showQuestion('PAGE02');">YES</button>
         <button onclick="showQuestion('NO');">NO</button>
 
 
@@ -56,11 +60,11 @@
         <img src="~/Content/slap02.gif" style="margin-bottom:20px;" />
 
         <br />
-        <button onclick="showQuestion('GUEST01');">BACK</button>
+        <button onclick="showQuestion('PAGE01');">BACK</button>
 
     </div>
 
-    <div name="Question" id="GUEST02" class="question">
+    <div name="Question" id="PAGE02" class="question">
         <div class="header-container" style="width:240px;">
             <span class="header">R</span>
             <span class="header">E</span>
@@ -83,12 +87,11 @@
             <b>Remember:</b> This website is 100% free!
         </p>
 
-        <button onclick="showQuestion('GUEST03');">NEXT</button>
-        <button onclick="showQuestion('GUEST01');">PREV</button>
+        <button onclick="showQuestion('PAGE03');">NEXT</button>
 
     </div>
 
-    <div name="Question" id="GUEST03" class="question">
+    <div name="Question" id="PAGE03" class="question">
 
         <div class="header-container" style="width:185px;">
             <span class="header">S</span>
@@ -102,12 +105,11 @@
             Start by getting the Cash App from your favorite App Store.
         </p>
 
-        <button onclick="showQuestion('GUEST04');">NEXT</button>
-        <button onclick="showQuestion('GUEST02');">PREV</button>
+        <button onclick="showQuestion('PAGE04');">NEXT</button>
 
     </div>
 
-    <div name="Question" id="GUEST04" class="question">
+    <div name="Question" id="PAGE04" class="question">
 
         <div class="header-container" style="width:185px;">
             <span class="header">S</span>
@@ -127,7 +129,7 @@
         <button onclick="addUser('@Model.UserName');">CREATE</button>
 
 
-        <button onclick="showQuestion('GUEST03');">PREV</button>
+        <button onclick="showQuestion('PAGE01');">HOME</button>
     </div>
 
 </div>
