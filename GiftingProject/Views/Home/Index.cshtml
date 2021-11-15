@@ -5,11 +5,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
-
-    <div class="stats-panel stats-panel-blue">
-        <div class="stats-panel-name">2UPGIFT.CLUB</div>
-    </div>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 
     <div id="DisplayWindow">
 
@@ -21,29 +17,25 @@
 
 <div style="display:none;">
 
-    @*<div name="Question" id="HOME" class="question">
-
-
-            <button onclick="showQuestion('USER01');">@Model.UserName</button>
-            <button onclick="showQuestion('GUEST01');">VISITOR</button>
-
-        </div>*@
-
     <div name="Question" id="GUEST01" class="question">
+        <div class="header-container" style="width:125px;">
+            <span class="header">G</span>
+            <span class="header">I</span>
+            <span class="header">V</span>
+            <span class="header">E</span>
+        </div>
 
-        <table>
-            <tr>
-                <td style="width:100px;">Page Owner:</td>
-                <td>@Model.UserName</td>
-            </tr>
-            <tr>
-                <td>Gift Partner:</td>
-                <td><b>@Model.OwnerName</b></td>
-            </tr>
-        </table>
+        <b>@Model.UserName</b> :
+        <p>
+            This is your chance to make a big deposit into the Universal Bank of Karma.
+            Use your Cash App to give a one-time $10 gift to:
+        </p>
 
-        <p><b>Owner: </b>please consider using the Cash App to send a $10 gift to your gift-partner.</p>
-        <p><b>Visitor: </b>Do you like receiving gifts?</p>
+        <div class="owner-name">@Model.OwnerName</div>
+
+        <br />
+        <b>Visitor: </b>
+        <p>Do you like receiving gifts?</p>
 
 
         <button onclick="showQuestion('GUEST02');">YES</button>
@@ -52,60 +44,87 @@
 
     </div>
     <div name="Question" id="NO" class="question">
+        <div class="header-container" style="width:225px;">
+            <span class="header">S</span>
+            <span class="header">M</span>
+            <span class="header">A</span>
+            <span class="header">C</span>
+            <span class="header">K</span>
+            <span class="header">!</span>
+        </div>
 
         <img src="~/Content/slap02.gif" style="margin-bottom:20px;" />
+
         <br />
         <button onclick="showQuestion('GUEST01');">BACK</button>
 
     </div>
 
     <div name="Question" id="GUEST02" class="question">
-
-        <p><b>WE CAN HELP</b></p>
+        <div class="header-container" style="width:225px;">
+            <span class="header">R</span>
+            <span class="header">E</span>
+            <span class="header">C</span>
+            <span class="header">E</span>
+            <span class="header">I</span>
+            <span class="header">V</span>
+            <span class="header">E</span>
+        </div>
+        <b>YOU'RE IN LUCK!</b>
         <p>
-            The whole point of this fun little website is to pair receivers
-            with a <b>constantly growing number</b> of potential givers.
+            The whole point of this fast, fun, and free, little website is to help Cash App
+            users receive a boat-load of $10 gifts!
+        </p>
+        <p style="margin-top:20px;">
+            <b>NOTE:</b> To make this system work for you, you must help
+            us find three new users.
         </p>
 
-        <button onclick="showQuestion('GUEST01');">PREV</button>
         <button onclick="showQuestion('GUEST03');">NEXT</button>
+        <button onclick="showQuestion('GUEST01');">PREV</button>
 
     </div>
 
     <div name="Question" id="GUEST03" class="question">
 
+        <div class="header-container" style="width:180px;">
+            <span class="header">S</span>
+            <span class="header">T</span>
+            <span class="header">E</span>
+            <span class="header">P</span>
+            <span class="header">-</span>
+            <span class="header">1</span>
+        </div>
         <p>
-            <b>STEP 1:</b>
-        </p>
-        <p>
-            Start by getting the Cash App if you don't already have it
-            from your App Store.
+            Start by getting the Cash App from your favorite App Store.
         </p>
 
-        <button onclick="showQuestion('GUEST02');">PREV</button>
         <button onclick="showQuestion('GUEST04');">NEXT</button>
+        <button onclick="showQuestion('GUEST02');">PREV</button>
 
     </div>
 
     <div name="Question" id="GUEST04" class="question">
 
+        <div class="header-container" style="width:180px;">
+            <span class="header">S</span>
+            <span class="header">T</span>
+            <span class="header">E</span>
+            <span class="header">P</span>
+            <span class="header">-</span>
+            <span class="header">2</span>
+        </div>
         <p>
-            <b>STEP 2:</b>
+            Next, create a customized copy of this web page, and
+            use it to help us find at least three (3) new users.
         </p>
-        <p>
-            Next, get a customized copy if this web page and start sharing!
-        </p>
-        <p>
-            <b>
-                NOTE: Your must share your page with at least 3 new users to make
-                this system work for you.
-            </b>
-        </p>
-        <label>Your Cashtag</label>
-        <input type="text" id="UserNameInput" value="" />
-        <button onclick="showQuestion('GUEST03');">PREV</button>
-        <button onclick="addUser('@Model.UserName');">GET MY PAGE</button>
 
+        <label>your cashtag</label>
+        <input type="text" id="UserNameInput" value="" />
+        <button onclick="addUser('@Model.UserName');">CREATE</button>
+
+
+        <button onclick="showQuestion('GUEST03');">PREV</button>
     </div>
 
 </div>
